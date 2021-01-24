@@ -1,0 +1,20 @@
+{% extends "wikisearch/base_generic.html" %}
+
+{% load crispy_forms_filters %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}<title>Home</title>{% endblock %}
+{% block content %}
+
+
+    <a href="{% url 'extractor-create' %}" class="btn btn-primary">Go to the keyphrase extractor</a>
+    <br>
+    <br>
+    <a href="{% url 'extract-keyphrases' %}" class="btn btn-success">See keyphrases</a>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "wikisearch/base_generic.html" %}
+
+
+{% block title %}<title>Extract keyphrases</title>{% endblock %}
+{% block content %}
+
+    <h2>My text</h2>
+    <p>
+    <small>{{ my_raw_text }}</small>
+    </p>
+
+    <h4>Extracted keyphrases from Wikipedia</h4>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Keyphrase</th>
+        <th scope="col">Disambiguation</th>
+        <th scope="col">Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for keyphrase, disamb, timestamp in mylist %}
+        <tr>
+          <td>{{ keyphrase }}</td>
+
+          <td>{{ disamb }}</td>
+          <td>{{ timestamp }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+{% endblock %}
