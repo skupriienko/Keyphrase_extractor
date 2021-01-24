@@ -8,24 +8,15 @@ from .forms import ExtractorForm
 import re
 import pandas as pd
 import urllib.request
+import nltk
 
 from datetime import datetime
 from bs4 import BeautifulSoup
-
-import nltk
 from nltk.corpus import stopwords
 
 
 def index(request):
-
     return render(request, "wikisearch/index.html", context={})
-
-
-def search(request):
-    form = ExtractorForm()
-
-    context = {"form": form}
-    return render(request, "wikisearch/search.html", context=context)
 
 
 class ExtractorCreateView(CreateView):
@@ -38,6 +29,7 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 stopwords = stopwords.words("english")
 wn = nltk.WordNetLemmatizer()
+
 
 # Extract last text from model Extractor
 def extract_text(request):
